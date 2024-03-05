@@ -96,10 +96,10 @@ social:
 
 # Analytics
 analytics:
-  provider               : false # false (default), "google", "google-universal", "google-gtag", "custom"
+  provider               : "google-gtag" # false (default), "google", "google-universal", "google-gtag", "custom"
   google:
-    tracking_id          :
-    anonymize_ip         : # true, false (default)
+    tracking_id          : "G-HCH1HWE3CY"
+    anonymize_ip         : false
 
 
 # Site Author
@@ -107,8 +107,8 @@ author:
   name             : "Han-Jin Lee"
   avatar           : "/assets/images/about_me.png"
   bio              : "AI 전공하는 대학원생"
-  location         : "강원도 원주시"
-  email            : "han-.-jin at yonsei.ac.kr"
+  # location         : "강원도 원주시"
+  email            : 
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
