@@ -107,7 +107,7 @@ author:
   name             : "Han-Jin Lee"
   avatar           : "/assets/images/about_me.png"
   bio              : "AI 전공하는 대학원생"
-  # location         : "강원도 원주시"
+  location         : "Korea"
   email            : 
   links:
     - label: "Email"
@@ -159,7 +159,7 @@ include:
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
-  - vendor
+  - vendor 
   - .asset-cache
   - .bundle
   - .jekyll-assets-cache
