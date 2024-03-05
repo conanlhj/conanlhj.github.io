@@ -1,5 +1,12 @@
 {% assign navigation = site.data.navigation[include.nav] %}
 
+{% assign categories_max = 0 %}
+{% for category in site.categories %}
+  {% if category[1].size > categories_max %}
+    {% assign categories_max = category[1].size %}
+  {% endif %}
+{% endfor %}
+
 <nav class="nav__list">
   {% if navigation[0].use %}
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
@@ -21,4 +28,5 @@
     </li>
   </ul>
   {% endif %}
+
 </nav>
