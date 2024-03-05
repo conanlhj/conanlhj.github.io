@@ -10,3 +10,12 @@ typora-root-url: ../
 # Hello, World!
 
 My very **first** posts in my very **first** blog.
+
+```python
+print("This is Sample Code for font setting.")
+
+def sample_function():
+    for i in range(10):
+        print(i)
+    return None
+```
