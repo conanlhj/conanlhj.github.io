@@ -121,7 +121,7 @@ comments:
   # Giscus options › https://giscus.app
   giscus:
     repo: conanlhj/giscus-blog # <gh-username>/<repo>
-    repo_id: R_kgDOOLD3Fw
+    repo_id: R_kgDOOLD3Fw # test
     category:
     category_id:
     mapping: # optional, default to 'pathname'
