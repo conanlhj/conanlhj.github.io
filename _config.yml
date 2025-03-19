@@ -120,10 +120,10 @@ comments:
     issue_term: # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo: conanlhj/giscus-blog # <gh-username>/<repo>
-    repo_id: R_kgDOOLD3Fw # test
-    category:
-    category_id:
+    repo: conanlhj/conanlhj.github.io # <gh-username>/<repo>
+    repo_id: R_kgDOOLCy8Q # test
+    category: Announcements
+    category_id: DIC_kwDOOLCy8c4CoOzh
     mapping: # optional, default to 'pathname'
     strict: # optional, default to '0'
     input_position: # optional, default to 'bottom'
