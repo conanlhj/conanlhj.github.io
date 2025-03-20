@@ -1,0 +1,21 @@
+---
+title: "Example Post in Chirpy"
+
+author: "John Doe"
+
+date: 2025-03-20 14:00:00 +0900
+
+categories: [Technology, Blogging]
+tags: [jekyll, tutorial, chirpy]
+
+description: "A step-by-step guide to writing a blog post in Chirpy theme."
+
+image: /assets/images/example-thumbnail.png
+
+pin: false
+math: true
+mermaid: true
+toc: true
+comments: true
+render_with_liquid: true
+---
