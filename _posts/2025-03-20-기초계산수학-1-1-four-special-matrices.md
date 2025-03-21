@@ -7,9 +7,8 @@ author: shiggy
 categories:
 - 수업 내용 정리
 - 기초계산수학
-tages:
-- 수학
-- 강의
+tag:
+- [Toeplitz, Matrix, Applied Mathematics]
 pin: false
 math: true
 mermaid: true
