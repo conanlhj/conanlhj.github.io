@@ -75,7 +75,7 @@ $$
 즉, 오차가 $ O(h^2) $ 이며, 앞의 두 방법보다 정확도가 더 높다.
 
 ![Desktop View](../assets/postimages/2025-03-21-기초계산수학-1-2-differences-derivatives-boundary-condtions-1742537968147.png)
-_Fig 1.1 - 도함수의 세 가지 유한 차분 근사 방식_
+_Fig 1 - 도함수의 세 가지 유한 차분 근사 방식_
 
 ## 3. 2차 도함수의 중심 차분 근사
 
@@ -136,7 +136,7 @@ $$
 이 결과는 이산 푸리에 변환(DFT)에서 등장하는 **푸리에 고유값 구조**와 일치한다.
 
 ![Desktop View](../assets/postimages/2025-03-21-기초계산수학-1-2-differences-derivatives-boundary-condtions-1742538419528.png)
-_Fig 1.2 - sin, cos, exp 함수 입력에 대한 고유값 계산 결과_
+_Fig 2 - sin, cos, exp 함수 입력에 대한 고유값 계산 결과_
 
 ## 6. 미분 방정식의 이산화: 행렬 방정식 $ Ku = f $
 
@@ -157,7 +157,7 @@ $$
 이 시스템은 선형 방정식이며, 수치적으로 직접 풀 수 있다. 중요한 점은 이 행렬이 **희소(sparse)** 하고 **대칭(symmetric)** 이며, **양의 정부호(positive definite)** 라는 점이다.
 
 ![Desktop View](../assets/postimages/2025-03-21-기초계산수학-1-2-differences-derivatives-boundary-condtions-1742538616058.png)
-_Fig 1.3 - $ u = [u_1, u_2, \dots, u_n]^T $ 해의 근사_
+_Fig 3 - $ u = [u_1, u_2, \dots, u_n]^T $ 해의 근사_
 
 ## 7. 경계 조건이 행렬을 결정한다
 
