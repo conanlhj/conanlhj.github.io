@@ -126,6 +126,8 @@ Toeplitz 행렬은 수치 해석과 신호 처리에서 **핵심적인 역할을
 
 이러한 행렬의 성질을 이해하면, **행렬 방정식 해법, 고유값 분석, 신호 처리 등 다양한 분야에서 효과적으로 활용할 수 있다**.
 
+---
+
 ## Reference
 
 [^1]: Gilbert Strang, *Computational Science and Engineering*, Wellesley-Cambridge Press, 2007. DOI: [10.1137/1.9780961408817](https://epubs.siam.org/doi/abs/10.1137/1.9780961408817).

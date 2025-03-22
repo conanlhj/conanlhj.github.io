@@ -192,6 +192,8 @@ $$
 - 경계 조건은 차분 행렬의 형태를 결정하며, 해의 존재성과 유일성, 그리고 수치적 정확도에 직접적인 영향을 미친다.
 - 특히 경계에서의 차분 방법(일방향 vs 중심 차분)은 전체 해의 정확도를 좌우한다. 이를 정교하게 처리하는 것이 고정밀 수치 해석의 핵심이다.
 
+---
+
 ## Reference
 
 [^1]: Gilbert Strang, *Computational Science and Engineering*, Wellesley-Cambridge Press, 2007. DOI: [10.1137/1.9780961408817](https://epubs.siam.org/doi/abs/10.1137/1.9780961408817).

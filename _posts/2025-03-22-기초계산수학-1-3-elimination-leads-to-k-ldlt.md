@@ -233,6 +233,8 @@ Positive definite 행렬의 피벗과 행렬의 상단 왼쪽 부분 행렬의 d
 
 예시로 3×3 행렬 $ K_3 $의 상단 왼쪽 행렬식은 각각 $2, 3, 4$이며 피벗은 이 행렬식의 비율로 각각 $2, \frac{3}{2}, \frac{4}{3}$가 된다.
 
+---
+
 ## Reference
 
 [^1]: Gilbert Strang, *Computational Science and Engineering*, Wellesley-Cambridge Press, 2007. DOI: [10.1137/1.9780961408817](https://epubs.siam.org/doi/abs/10.1137/1.9780961408817).
