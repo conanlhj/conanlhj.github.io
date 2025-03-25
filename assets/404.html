@@ -8,7 +8,9 @@ redirect_from:
   - /assets/
   - /posts/
 ---
-
 {% include lang.html %}
 
-<p class="lead">{{ site.data.locales[lang].not_found.statement }}</p>
+<div style="text-align:center; padding:4rem 1rem;">
+  <h1 style="font-size:4rem; margin-bottom:1rem; color:var(--main-border-color);">404</h1>
+  <p class="lead">이런... {{ site.data.locales[lang].not_found.statement }}</p>
+</div>
