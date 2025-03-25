@@ -110,6 +110,14 @@
   --code-header-icon-color: #c9c8c8;
   --clipboard-checked-color: #43c743;
 
+  /* Heatmap */
+  --heatmap-heading-color: #6a6a6a;
+  --heatmap-cell-1: #f5e4de;
+  --heatmap-cell-2: #f8beb2;
+  --heatmap-cell-3: #fc9786;
+  --heatmap-cell-4: #ff715a;
+  --heatmap-label-color: #757575;
+
   [class^='prompt-'] {
     --link-underline-color: rgb(219, 216, 216);
   }

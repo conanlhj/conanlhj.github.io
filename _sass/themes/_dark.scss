@@ -67,6 +67,7 @@
   --btn-share-hover-color: #bfc1ca;
   --card-bg: #1e1e1e;
   --card-hovor-bg: #925448;
+  --sdf: #3a2e2dd7;
   --card-shadow: rgb(21, 21, 21, 0.72) 0 6px 18px 0,
     rgb(137, 135, 135, 0.24) 0 0 0 1px;
   --kbd-wrap-color: #6a6a6a;
@@ -110,6 +111,14 @@
   --code-header-icon-color: #565656;
   --clipboard-checked-color: #2bcc2b;
   --filepath-text-color: #cacaca;
+
+  /* Heatmap */
+  --heatmap-heading-color: #a4a4a4;
+  --heatmap-cell-1: #3a2e2d;
+  --heatmap-cell-2: #7c4c45;
+  --heatmap-cell-3: #bd6b5d;
+  --heatmap-cell-4: #ff8975;
+  --heatmap-label-color: #868686;
 
   .light {
     display: none;
