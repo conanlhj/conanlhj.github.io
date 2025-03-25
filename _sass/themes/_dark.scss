@@ -120,6 +120,17 @@
   --heatmap-cell-4: #ff8975;
   --heatmap-label-color: #868686;
 
+  /* 사용자 정의 박스 */
+  --definition-bg: #243747; // 더 밝게 수정하여 대비 향상
+  --definition-border: #4dabf7;
+  --definition-title-color: #a8d9ff; // 밝은 하늘색 계열로 제목 대비 강조
+  --theorem-bg: #203a31;
+  --theorem-border: #38d9a9;
+  --theorem-title-color: #8cf8d4;
+  --example-bg: #3e3724;
+  --example-border: #fab005;
+  --example-title-color: #ffdfa6;
+
   .light {
     display: none;
   }

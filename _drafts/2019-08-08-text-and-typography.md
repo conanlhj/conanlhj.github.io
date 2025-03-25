@@ -78,6 +78,19 @@ Moon
 
 > An example showing the `danger` type prompt.
 {: .prompt-danger }
+
+> **Definition 2.1.1**  
+> Let $ \Omega $ be a given set. A σ-algebra $ \mathcal{F} $ ...
+{: .definition-box }
+
+> **Theorem 1.2** (Fundamental Theorem of Calculus)  
+> If $ f $ is continuous on $[a, b]$, then ...
+{: .theorem-box }
+
+> **Example.**  
+> Consider the function $ f(x) = e^x $. Then ...
+{: .example-box }
+
 <!-- markdownlint-restore -->
 
 ## Tables

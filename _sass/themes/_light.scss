@@ -118,6 +118,17 @@
   --heatmap-cell-4: #ff715a;
   --heatmap-label-color: #757575;
 
+  /* 사용자 정의 박스 */
+  --definition-bg: #e1f1ff;
+  --definition-border: #339af0;
+  --definition-title-color: #1971c2;
+  --theorem-bg: #dff9f0;
+  --theorem-border: #20c997;
+  --theorem-title-color: #099268;
+  --example-bg: #fff3da;
+  --example-border: #fcc419;
+  --example-title-color: #d48b00;
+
   [class^='prompt-'] {
     --link-underline-color: rgb(219, 216, 216);
   }
