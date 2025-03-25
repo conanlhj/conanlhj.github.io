@@ -10,48 +10,48 @@
 /* append your custom style below */
 
 /* Definition, Theorem, Example Boxes */
-.definition-box,
-.theorem-box,
-.example-box {
-  padding: 1rem;
-  margin: 1.5rem 0;
-  border-radius: 0.5rem;
-  border-left: 4px solid;
+// .definition-box,
+// .theorem-box,
+// .example-box {
+//   padding: 1rem;
+//   margin: 1.5rem 0;
+//   border-radius: 0.5rem;
+//   border-left: 4px solid;
 
-  font-size: 1.1rem;
+//   font-size: 1.1rem;
 
-  line-height: 1.6; // line-height 약간 증가
-  background-color: var(--box-bg-color);
-  border-color: var(--box-border-color);
-  color: var(--text-color);
+//   line-height: 1.6; // line-height 약간 증가
+//   background-color: var(--box-bg-color);
+//   border-color: var(--box-border-color);
+//   color: var(--text-color);
 
-  p {
-    margin: 0;
-  }
+//   p {
+//     margin: 0;
+//   }
 
-  strong {
-    font-weight: 700; // bold 효과를 좀 더 강조
-    font-size: 1.2rem; // 굵게 강조된 부분의 폰트 사이즈 확대
-    font-style: normal;
-    color: var(--box-title-color); // 제목 텍스트 색상 명시적으로 지정
-  }
-}
+//   strong {
+//     font-weight: 700; // bold 효과를 좀 더 강조
+//     font-size: 1.2rem; // 굵게 강조된 부분의 폰트 사이즈 확대
+//     font-style: normal;
+//     color: var(--box-title-color); // 제목 텍스트 색상 명시적으로 지정
+//   }
+// }
 
-/* Box-specific styles */
-.definition-box {
-  --box-bg-color: var(--definition-bg);
-  --box-border-color: var(--definition-border);
-  --box-title-color: var(--definition-title-color);
-}
+// /* Box-specific styles */
+// .definition-box {
+//   --box-bg-color: var(--definition-bg);
+//   --box-border-color: var(--definition-border);
+//   --box-title-color: var(--definition-title-color);
+// }
 
-.theorem-box {
-  --box-bg-color: var(--theorem-bg);
-  --box-border-color: var(--theorem-border);
-  --box-title-color: var(--theorem-title-color);
-}
+// .theorem-box {
+//   --box-bg-color: var(--theorem-bg);
+//   --box-border-color: var(--theorem-border);
+//   --box-title-color: var(--theorem-title-color);
+// }
 
-.example-box {
-  --box-bg-color: var(--example-bg);
-  --box-border-color: var(--example-border);
-  --box-title-color: var(--example-title-color);
-}
+// .example-box {
+//   --box-bg-color: var(--example-bg);
+//   --box-border-color: var(--example-border);
+//   --box-title-color: var(--example-title-color);
+// }
