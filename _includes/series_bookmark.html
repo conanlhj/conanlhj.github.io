@@ -1,0 +1,43 @@
+{% assign main_cat = page.categories[0] %}
+{% assign sub_cat = page.categories[1] %}
+
+{% if main_cat and sub_cat %}
+  {% assign series_posts = site.posts
+    | where_exp: 'post', 'post.categories[0] == main_cat and post.categories[1] == sub_cat'
+    | sort: 'date'
+  %}
+  {% if series_posts.size > 1 %}
+    <div class="series-bookmark">
+      <div class="bookmark-header" onclick="toggleSeriesBookmark()">
+        <span>📚 "{{ main_cat }}/{{ sub_cat }}" 시리즈의 다른 글</span>
+        <span id="bookmark-toggle-icon">▼</span>
+      </div>
+      <ul class="bookmark-list" id="series-bookmark-list">
+        {% for post in series_posts %}
+          {% if post.url != page.url %}
+            <li>
+              <a href="{{ post.url }}">{{ post.title }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+
+    <script>
+      function toggleSeriesBookmark() {
+        const list = document.getElementById('series-bookmark-list');
+        const icon = document.getElementById('bookmark-toggle-icon');
+        if (list.style.display === 'none') {
+          list.style.display = 'block';
+          icon.textContent = '▲';
+        } else {
+          list.style.display = 'none';
+          icon.textContent = '▼';
+        }
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('series-bookmark-list').style.display = 'none';
+      });
+    </script>
+  {% endif %}
+{% endif %}
