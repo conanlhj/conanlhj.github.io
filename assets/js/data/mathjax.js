@@ -21,5 +21,11 @@ MathJax = {
     ],
     {%- comment -%} equation numbering {%- endcomment -%}
     tags: 'ams'
+  },
+  svg: {
+    fontCache: 'global'
+  },
+  startup: {
+    typeset: false
   }
 };
