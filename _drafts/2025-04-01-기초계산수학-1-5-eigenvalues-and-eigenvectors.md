@@ -21,12 +21,16 @@ render_with_liqueid: true
 > 이 포스팅 시리즈는 대학원 수업 [기초계산수학]의 내용을 바탕으로 정리한 글입니다. Gilbert strang 교수님의 책 "Computational science and engineering[^1]"을 참고하여 작성하였습니다.
 {:.prompt-info}
 
+---
+
 ## Eigenvalues and Eigenvectors
 
 이번 장에서는 $ A x = \lambda x $ 형태를 다룬다. 이것은 eigenvector $ x $와 각각에 대응되는 eigenvalue $ \lambda $와 관련된 식이다. $ \text{det}(A - \lambda I) = 0 $ 부터 시작해서 위 식을 풀 수는 있지만.. 행렬이 커질수록 저 방법으로 푸는 것은 아주 고통스러울 것이다. 수치선형대수의 발전으로 eigenvalue를 계산하는 빠르고 안정적인 알고리즘이 등장했으나, 이번 장에서는 좀 특별한 행렬들을 다루기 때문에 수치적으로가 아닌 정확한 $ \lambda $와 $ x $를 구하는 방법을 다를 것이다. 이번 장은 다음의 두 파트로 나뉠 수 있다.
 
 1. Part I. 행렬 $ A $를 diagonalize하는데에 eigenvalue를 적용하여 $ u' = Au $를 푼다. ($ A = S \Lambda S^{-1} $)
 2. Part II. $ K_n, T_n, B_n, C_n $ 행렬의 eigenvalues는 전부 $ \lambda = 2 - 2 \cos \theta $이다. ($ K = Q \Lambda Q^T $)
+
+---
 
 ### Part I: $ A x = \lambda x $ and $ A^k x = \lambda^k x $ and Diagonalizing $ A $
 
@@ -143,7 +147,46 @@ $AB=BA$가 성립하는 특수한 경우에는 $A$와 $B$가 $Ax=\lambda x$, $x=
 > 그러면 다항식의 계수의 성질을 이용한 $\lambda$의 합과 곱을 이용하여, 만약 trace가 $.8+.7=1.5$라면, 다른 eigenvalue는 0.5라는 것을 알 수 있고, A의 determinant는 그 둘의 곱인 0.5라는 것을 알 수 있다. 1과 .5에 대응되는 eigenvector는 각각 $(.6,.4), (-1,1)$이다.
 {: .example-box }
 
+---
+
 ### Eigshow
+
+이 챕터는 책에서는 소개하고 있지만, 현재 듣고 있는 수업은 MATLAB을 사용해서 진행하지는 않는다.(지긋지긋한 MATLAB..) 그래서 코드와 관련한 부분은 소개하지 않고 있었는데, 재미있는 insight를 주는 장이여서 가져와봤다. `eigshow`라는 명령어 (2016 버전의 MATLAB부터는 지원이 안되는듯... 찾아보니까 [여기](https://web.mit.edu/18.06/www/Course-Info/Mfiles/eigshow.m)서 코드를 제공해준다.)를 MATLAB에 치면, eigenvalue와 eigenvector를 시각적으로 보여준다. (아마도 2차원에서만 가능할듯?)
+
+![Desktop View](https://blogs.mathworks.com/images/cleve/eigshowp_w1a.gif){: w="50%" .normal}
+
+위 gif를 보자. 초록색 원을 따라 움직이는 벡터는 동심원을 따라 움직이는 벡터 $x$이다. 그리고 파란색 타원을 따라 움직이는 벡터는 $Ax$ 즉, $A$에 의해 변형된 벡터이다. $x$가 움직임에 따라 길이는 다르더라도 $Ax$와 평행해지는 때가 두 번 존재하는데, 이 경우 $Ax=\lambda x$가 성립한다고 볼 수 있다. 여기서 두 벡터가 평행하지만 방향이 다르면 $\lambda$는 음수이고, $Ax$와 $x$가 같은 방향을 가리키면 $\lambda$는 양수이다. 그리고 두 벡터가 평행할 때 $\lambda$는 $x$와 $Ax$의 길이 비율이다. (즉, $ \|\| Ax \|\| / \|\| x \|\| $)
+
+이 gif는 $A$가 두 개의 실수 eigenvalue를 가질 때를 보여준다. 하지만 이 예시(2x2 행렬)에서는 실수 eigenvalue가 0개, 1개, 2개일 수 있다.
+
+> 1. 실수 고유벡터가 없을 수 있다.
+>   - 이 경우 $Ax$는 $x$와 평행한 경우가 생기지 않는다. (항상 $Ax$는 $x$보다 앞서거나 뒤쳐지 있다.) 이럴 때 eigenvalue와 eigenvector는 복소수 값을 가지게 된다.
+>   - ![Desktop View](https://blogs.mathworks.com/images/cleve/eigshowp_w1c.gif){: w="50%" .normal}
+> 
+> 2. eigenvector의 직선이 오직 한 개일 수 있다.
+>   - 이 경우 $Ax$는 $x$와 평행한 경우가 한 번만 존재한다. (즉, $Ax$는 $x$와 같은 방향을 가리키고, 길이는 다르다.) 이럴 때 eigenvalue는 중근을 가진다. 예시에서 두 번 만나지만, 두 방향이 같다!
+>   - ![Desktop View](https://blogs.mathworks.com/images/cleve/eigshowp_w2c.gif){: w="50%" .normal}
+> 
+> 3. 서로 독립인 eigenvector가 두 개 있을 수 있다.
+>  - 이 경우 $Ax$는 $x$와 평행한 경우가 두 번 존재한다. (즉, $Ax$는 $x$와 같은 방향을 가리키고, 길이는 다르다.) 이럴 때 eigenvalue는 서로 다른 두 개의 실수 값을 가진다.
+{: .example-box }
+
+---
+
+### The Powers of a Matrix
+
+선형방정식 $Ax=b$는 steady state problem(정적 상태 문제)에서 나온다. 하지만 eigenvalue는 dynamic problem(동적 문제)에서 중요하다! 여기서 동적 문제란, solution, 즉 시스템의 해가 시간에 따라 달라지는 것을 의미한다. 이 경우 우리는 elimination 방법을 사용해서 문제를 풀면 안된다. (Eigenvalues을 바꾸게 된다.)
+
+> **Example 4** $u(t)$의 두 요소는 시간 $t$에서 강남과 강북의(현지화를 좀 해봤다 ..ㅎㅎ) 인구를 나타낸다. 매년, 강남의 $0.8$의 인구가 그대로 머무르고, $0.2$의 인구가 강북으로 이주한다. 동시에 강북의 $0.7$의 인구가 머무르고, $0.3$의 인구가 강남으로 이주한다고 하자.
+>
+> $$
+> u(t+1) = A u(t) \quad \begin{bmatrix} t+1 \text{시간 강북인구} \\ t+1 \text{시간 강남인구} \end{bmatrix} = \begin{bmatrix} 0.8 & 0.3 \\ 0.2 & 0.7 \end{bmatrix} \begin{bmatrix} t \text{시간 강북인구} \\ t \text{시간 강남인구} \end{bmatrix}
+> $$
+>
+> 아무도 죽지 않고, 아무도 태어나지 않는다고 가정했을 때($A$의 열의 합이 1이므로) $t=0$에서 천 명의 사람이 강북에 살고 있고, 강남에는 0명이 살고 있다고 하자. (즉, $u(0) = \begin{bmatrix} 1000 \\ 0 \end{bmatrix}$) 1년이 지나면 $Ax$의 결과와 같고 강북에는 $800$명이 남고, 강남에는 $200$명이 생긴다. (즉, $u(1) = \begin{bmatrix} 800 \\ 200 \end{bmatrix}$)
+> 여기서 나오는 행렬 $A$는 앞의 Example 3와 같은 markov 행렬이고, eigenvalue는 $1$과 $0.5$이다. 만약 100년이 지난다면, 인구의 변화는 거의 없을 것이고 인구가 600, 400명으로 안정화 될 것이다. 그 이유는 eigenvalue가 $1$인 eigenvector는 steady state로 계속 존재하지만, $0.5$인 eigenvector는 $A$를 곱할수록 점점 그 영향력이 줄어들기 때문이다.
+{: .example-box }
+
 
 
 ---
