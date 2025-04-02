@@ -8,7 +8,7 @@ categories:
 - 수업 내용 정리
 - 기초계산수학
 tag:
-- [eigenvalues, eigenvectors]
+- [diagonalization, eigenvalue problems, symmetric matrices, dynammic systems, markov chains]
 pin: false
 math: true
 mermaid: true
