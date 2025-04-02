@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[기초계산수학] 1.5 Eigenvalues and Eigenvectors"
+title: "[기초계산수학] 1.5 Eigenvalues and Eigenvectors (Part I)"
 date: 2025-04-01 15:34 +0900
 description: Computational science and engineering 강의 내용 정리
 author: shiggy
@@ -187,7 +187,178 @@ $AB=BA$가 성립하는 특수한 경우에는 $A$와 $B$가 $Ax=\lambda x$, $x=
 > 여기서 나오는 행렬 $A$는 앞의 Example 3와 같은 markov 행렬이고, eigenvalue는 $1$과 $0.5$이다. 만약 100년이 지난다면, 인구의 변화는 거의 없을 것이고 인구가 600, 400명으로 안정화 될 것이다. 그 이유는 eigenvalue가 $1$인 eigenvector는 steady state로 계속 존재하지만, $0.5$인 eigenvector는 $A$를 곱할수록 점점 그 영향력이 줄어들기 때문이다.
 {: .example-box }
 
+여기 $u_k = A^k u_0$를 $A$의 eigenvalue와 eigenvector로 계산하는 3단계가 있다.
 
+1. $u_0$를 eigenvector들의 linear combination으로 표현한다.
+   - $u_0 = a_1 x_1 + \cdots + a_n x_n$
+2. $a_j$를 $(\lambda_j)^k$로 곱한다.
+3. eigenvector를 $u_k = a_1 (\lambda_1)^k x_1 + \cdots + a_n (\lambda_n)^k x_n$로 표현한다.
+
+이 과정을 행렬을 이용한 수식으로 표현하면 $u_k = S \Lambda^k S^{-1} u_0$가 된다. 여기서 $S$는 $A$의 eigenvector를 열로 구성한 행렬이고, 대각행렬 $\Lambda$는 각 대각선 성분으로 eigenvalue를 가진다. 위 3단계를 행렬의 언어로 다시 쓰면:
+
+1. $$
+   u_0 = \begin{bmatrix} & & \\ x_1 & \cdots & x_n \\ & & \end{bmatrix} \begin{bmatrix} a_1 \\ \vdots \\ a_n \end{bmatrix} = S a
+   $$로 두어서 $a=S^{-1} u_0$를 구한다.
+2. $$
+   \begin{bmatrix}
+    \lambda_1^k & & \\ & \ddots & \\ & & \lambda_n^k
+   \end{bmatrix}
+   \begin{bmatrix}
+    a_1 \\ \vdots \\ a_n
+   \end{bmatrix} = \Lambda^k a
+   $$를 곱해서 $\Lambda^k S^{-1} u_0$를 구한다.
+3. $$
+   u_k = \begin{bmatrix} & & \\ x_1 & \cdots & x_n \\ & & \end{bmatrix} \begin{bmatrix}
+    (\lambda_1)^k a_1 \\ \vdots \\ (\lambda_n)^k a_n
+   \end{bmatrix} = S \Lambda^k a
+   $$로 다시 계산해서 $u_k=S \Lambda^k S^{-1} u_0$를 구한다.
+
+위 과정에서 2단계가 가장 빠르다. (대각행렬이기 때문에 n번 곱하는게 전부) 1단계는 linear system을 푸는 것과 같고, 3단계는 $S$를 곱해서 $u_k$를 다시 재건하는 것이다.
+
+---
+
+### Diagonalizing a Matrix
+
+위 예시에서 우리는 행렬을 diagonalize하는 것이 얼마나 우리에게 유용한지를 볼 수 있었다고 생각한다. Eigenvector $x$에 대해서, 행렬 $A$를 곱한다는 것은 결국 숫자 $\lambda$ 를 곱하는 것과 같다. ($Ax=\lambda x$) 이렇게 하면 계산에 있어서 n by n 차원의 복잡함이 사라진다. 정보가 서로 얽혀있는 행렬을 사용하는 대신 우리는 eigenvector를 분리해서 생각할 수 있다. 결국 이것은 행렬을 대각화하여 대각 행렬을 만들어 대각선 이외에는 정보가 연결되어있지 않게 만드는 것과 같다. 추가로, 대각 행렬의 100제곱을 계산하는 것은 결국 원소 별로 100제곱만 해주면 되기 때문에 일반 행렬의 100제곱보다 쉽다.
+
+**우리가 eigenvector를 잘 사용한다면, 행렬 $A$는 대각 행렬 $\Lambda$로 diagonalize할 수 있다.** n by n 행렬 $A$가 $n$개의 선형 독립인 eigenvector $x_1, \cdots, x_n$를 가지고 있다고 하자. 이 eigenvector들은 **eigenvector matrix** $S$의 열을 구성한다. 그러면, $S^{-1}AS = \Lambda$는 대각행렬이다.
+
+$$
+S^{-1}AS = \Lambda = \begin{bmatrix}
+  \lambda_1 & & \\ & \ddots & \\ & & \lambda_n
+\end{bmatrix}
+$$
+
+Eigenvalue matrix로는 대문자 Lambda를 사용하고, 그 대각 선분인 eigenvalue는 소문자 lambda를 사용한다.
+
+
+> **Proof**  왜 $S^{-1}AS = \Lambda$가 대각행렬이 나오는지 증명해보자.
+> 
+> $$
+> AS = A \begin{bmatrix}
+>   & & \\ x_1 & \cdots & x_n \\ & &
+> \end{bmatrix} = \begin{bmatrix}
+>   & & \\ \lambda_1 x_1 & \cdots & \lambda_n x_n \\ & &
+> \end{bmatrix}
+> $$
+>
+> 위 식에서 S의 열을 기준으로 보면, $Ax_1$을 계산하게 된다. 하지만 $x_1$은 eigenvector이기 때문에 $Ax_1 = \lambda_1 x_1$이 성립한다. 위 결과에서 $AS$를 다음과 같이 변경할 수 있다.
+> 
+> $$
+> \begin{bmatrix}
+>   & & \\ \lambda_1 x_1 & \cdots & \lambda_n x_n \\ & &
+> \end{bmatrix} = \begin{bmatrix}
+>   & & \\ x_1 & \cdots & x_n \\ & &
+> \end{bmatrix} \begin{bmatrix} \lambda_1 & & \\ & \ddots & \\ & & \lambda_n \end{bmatrix}
+> $$
+>
+> 따라서 $AS = S \Lambda$가 성립하므로, 양변에 $S^{-1}$을 곱하면 $S^{-1}AS = \Lambda$가 성립한다. 또는 반대로 $A = S \Lambda S^{-1}$로 표현할 수 있다.
+{: .theorem-box }
+
+어 그러면 $S$가 invertable 해야 하는 거 아닌가? 맞다. 우리는 $S$가 서로 선형 독립인 eigenvector를 $n$개 가진다고 가정했기 때문에 $S^{-1}$을 사용했다. 하지만 서로 독립인 eigenvector를 가지지 않는다면, 우리는 $A$를 diagonalize할 수 없다. 만약 eigenvalue가 중복되지 않는다면, 우리는 서로 다른 $n$개의 eigenvector를 가진다고 볼 수 있다.
+
+---
+
+### Application to Vector Differential Equations
+
+다음과 같은 single differential equation $\frac{dy}{dt} = ay$는 일반해 $y(t)=Ce^{at}$를 가진다. 초기값 $y(0)$은 상수 $C$를 결정하고, $a < 0$이면 $y(t)$는 감소하고, $a > 0$이면 $y(t)$는 증가한다. 여기서 감소는 안정성, 증가는 불안정성으로 해석할 수 있다. 만일 $a$가 복소수라면, 그 실수부는 증가/감소를 결정하고, 허수부는 진동을 결정한다. (즉, $e^{i\omega t} = \cos{\omega t} + i \sin{\omega t}$)
+
+이제 두 같은 식을 살펴보자.
+
+$$
+\frac{d\mathbf{u}}{dt} = A\mathbf{u} \quad
+\begin{cases}
+\frac{dy}{dt} = 2y - z \\
+\frac{dz}{dt} = -y + 2z
+\end{cases}
+\quad \text{or} \quad
+\frac{d}{dt} \begin{bmatrix} y \\ z \end{bmatrix}
+= \begin{bmatrix} 2 & -1 \\ -1 & 2 \end{bmatrix}
+\begin{bmatrix} y \\ z \end{bmatrix}.
+$$
+
+위 식의 해는 $e^{\lambda t}$를 여전히 포함할 것이다. 하지만 우리는 더이상 하나의 증가/감소를 가지지 않는다. 이 식에는 두 개의 eigenvalue $\lambda_1 = 1$과 $\lambda_2 = 3$가 존재한다. 그래서 해는 $e^{t}$와 $e^{3 t}$를 가진다. 그들은 $x=(1, 1)$과 $x=(1, -1)$에 곱해진다.
+
+해를 찾는 좋은 방법중 하나는 eigenvector를 이용하는 것이다. **일반해 $e^{\lambda t}x$**는 자신의 eigenvalue 1, 3에 따라 증가하는 eigenvector들이다. 우리는 다음과 같이 합쳐서 쓸 수 있다.
+
+$$
+u(t) = Ce^t x_1 + D e^{3t} x_2 \quad \text{is} \quad \begin{bmatrix}
+y(t) \\ z(t)  
+\end{bmatrix} = \begin{bmatrix}
+C e^t + D e^{3t} \\
+C e^t - D e^{3t}
+\end{bmatrix}
+$$
+
+이것이 Complete solution이다. 이것은 두 상수 $C$와 $D$를 가지는데 두 개의 초기값 $y(0)$와 $z(0)$에 의해 결정된다. $e^{\lambda t} x$가 $\frac{du}{dt}=Au$를 푸는지 확인해보자.
+
+$$
+u(t) = e^{\lambda t} x \quad \text{yields} \quad
+\frac{du}{dt} = \lambda e^{\lambda t} x = Ae^{\lambda t} x = A u
+$$
+
+숫자 $e^\lambda t$는 모든 eigenvector $x$에 단순히 곱해진다.
+
+> **Example 5** 초기값 $y(0)=7$, $z(0)=3$이 주어졌다고 하자. 시작 시점 $t=0$에서 증가 요인 $e^{\lambda t}$는 다음과 같다.:
+>
+> $$
+> u(0) = C \begin{bmatrix} 1 \\ 1 \end{bmatrix} + D \begin{bmatrix} 1 \\ -1 \end{bmatrix} \quad \text{is} \quad \begin{bmatrix} 7 \\ 3 \end{bmatrix} = 5 \begin{bmatrix} 1 \\ 1 \end{bmatrix} + 2 \begin{bmatrix} 1 \\ -1 \end{bmatrix}
+> $$
+>
+> 두 식을 풀어서 우리는 $C=5$, $D=2$를 얻는다. 그러면 $u(t) = 5 e^t x_1 + 2 e^{3t} x_2$가 되고 우리는 시스템 전체를 풀 수 있게 되었다. 이 해는 천천한 증가와 빠른 증가의 합으로 이루어져 있고, 긴 시간이 지나면 $e^{3t}$가 dominant하게 된다. 그래서 해는 결국 $x_2$에 의해 지배된다.
+{: .example-box}
+
+---
+
+### Symmetric Matrices and Orthonormal Eigenvectors
+
+우리가 공부하고 있는 $K, T, B, C$ 행렬들은 모두 symmetric하다. 만약 $A$가 symmetric하면, 그 eigenvector들은 모두 직교하고, $\lambda$는 모두 실수이다.
+
+**즉, symmetric한 행렬은 모두 실수 eigenvalue를 가지면, orthonormal eigenvector를 가진다.**
+
+Orthonomal한 벡터에 대해 우리는 $x$가 아닌 $q$쓰고, $q$들로 이루어진 행렬 $S$를 $S$ 대신에 $Q$를 쓴다. ($A=Q\Lambda Q^T$) 여기서 Orthonormal한 벡터는 서로 직교하는 단위 벡터를 말한다.
+
+$$
+q_i^T q_j = \begin{cases}
+1 & \text{if } i=j \\
+0 & \text{if } i \neq j
+\end{cases}
+$$
+
+행렬 $Q$는 계산하기 편한데, $Q^TQ=I$이기 때문이다. (즉, $Q^{-1}=Q^T$) 
+
+$$
+Q^\top Q =
+\begin{bmatrix}
+\text{--- } q_1^\top \text{ ---} \\
+\vdots \\
+\text{--- } q_n^\top \text{ ---}
+\end{bmatrix}
+\begin{bmatrix}
+\big| & & \big| \\
+q_1 & \cdots & q_n \\
+\big| & & \big|
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & \cdots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \cdots & 1
+\end{bmatrix}
+= I.
+$$
+
+3차원에서의 두 orthonormal한 열에 대해서, $Q$는 3 by 2의 크기를 가진다. 이렇게 정방행렬이 아닌 경우 우리는 $Q^TQ=I$지만, $QQ^T=I$는 성립하지 않는다.
+
+하지만 모든 full set of eigenvector에 대해서 우리는 다음을 알 수가 있다.
+
+$$
+A = S\Lambda S^{-1} = Q \Lambda Q^T
+$$
+
+## Conclusion
+
+포스팅이 생각보다 길어져 Part II에 대한 내용은 다음 포스팅으로 올려야 겠다.. 이번 장에서는 Eigenvalue와 Eigenvector에 대한 기본적인 정의와 성질을 알아보았다. 그리고 이들을 이용하여 행렬을 diagonalize하는 방법과 그 유용성에 대해서도 알아보았다. 마지막으로 symmetric한 행렬에 대해서는 orthonormal한 eigenvector를 가진다는 사실을 알게 되었다.
 
 ---
 ## Reference
