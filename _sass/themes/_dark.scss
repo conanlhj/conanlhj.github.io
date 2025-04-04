@@ -129,6 +129,10 @@
   --example-bg: #3e3724;
   --example-border: #fab005;
   --example-title-color: #ffdfa6;
+  --paper-info-bg: #1e2a38; /* 어두운 청색 계열의 배경 */
+  --paper-info-border: #3498db; /* 원래와 동일한 선명한 블루 (어둡고 깊은 배경 위에서 돋보임) */
+  --paper-info-accent: #3498db; /* 동일하게 유지 */
+  --paper-info-title-color: #85c1e9; /* 라이트 모드의 #2980b9보다 더 밝게 하여 어두운 배경에서 가독성 향상 */
 
   .light {
     display: none;

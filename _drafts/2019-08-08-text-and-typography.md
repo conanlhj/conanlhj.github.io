@@ -91,6 +91,13 @@ Moon
 > Consider the function $ f(x) = e^x $. Then ...
 {: .example-box }
 
+> **논문 제목**  
+> Author A, Author B  
+> Institution A, Institution B  
+> ICLR 2023  
+>[여기 클릭](https://example.com)
+{: .paper-info-box }
+
 <!-- markdownlint-restore -->
 
 ## Tables

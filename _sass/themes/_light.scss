@@ -128,6 +128,10 @@
   --example-bg: #fff3da;
   --example-border: #fcc419;
   --example-title-color: #d48b00;
+  --paper-info-bg: #eaf6fc;
+  --paper-info-border: #3498db; // 메인 액센트 색상
+  --paper-info-accent: #3498db; // 메인 액센트 색상
+  --paper-info-title-color: #2980b9;
 
   [class^='prompt-'] {
     --link-underline-color: rgb(219, 216, 216);
