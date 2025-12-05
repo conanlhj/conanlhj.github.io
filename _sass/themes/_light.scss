@@ -132,6 +132,22 @@
   --paper-info-border: #3498db; // 메인 액센트 색상
   --paper-info-accent: #3498db; // 메인 액센트 색상
   --paper-info-title-color: #2980b9;
+  /* _light.scss 파일의 '사용자 정의 박스' 섹션 아래에 복사/붙여넣기 */
+
+  /* Lemma: 시원한 청록(Cyan) 계열 */
+  --lemma-bg: #e3fafc;
+  --lemma-border: #1098ad;
+  --lemma-title-color: #0b7285;
+
+  /* Problem: 연한 붉은(Red) 계열 */
+  --problem-bg: #fff5f5;
+  --problem-border: #ff8787;
+  --problem-title-color: #c92a2a;
+
+  /* Exercise: 연한 보라(Violet) 계열 */
+  --exercise-bg: #f3f0ff;
+  --exercise-border: #9775fa;
+  --exercise-title-color: #5f3dc4;
 
   [class^='prompt-'] {
     --link-underline-color: rgb(219, 216, 216);

@@ -10,17 +10,20 @@
 /* append your custom style below */
 
 /* Definition, Theorem, Example Boxes */
+/* Definition, Theorem, Example, Lemma, Problem, Exercise Boxes */
 .definition-box,
 .theorem-box,
-.example-box {
+.lemma-box,
+.example-box,
+.problem-box,
+.exercise-box {
   padding: 1rem;
   margin: 1.5rem 0;
   border-radius: 0.5rem;
   border-left: 4px solid;
-
+  
   font-size: 1.1rem;
-
-  line-height: 1.6; // line-height 약간 증가
+  line-height: 1.6;
   background-color: var(--box-bg-color);
   border-color: var(--box-border-color);
   color: var(--text-color);
@@ -29,11 +32,16 @@
     margin: 0;
   }
 
-  strong {
-    font-weight: 700; // bold 효과를 좀 더 강조
-    font-size: 1.2rem; // 굵게 강조된 부분의 폰트 사이즈 확대
+  /* [문제 해결 2] 제목만 스타일링하기
+    박스 내부의 '첫 번째 문단(p)'의 '첫 번째 굵은 글씨(strong)'에만 스타일 적용 
+  */
+  & > p:first-child > strong:first-child {
+    font-weight: 700;
+    font-size: 1.2rem;
     font-style: normal;
-    color: var(--box-title-color); // 제목 텍스트 색상 명시적으로 지정
+    color: var(--box-title-color); 
+    display: inline-block; /* 필요 시 간격 조정을 위해 */
+    margin-right: 0.3rem; /* 제목과 내용 사이 간격 */
   }
 }
 
@@ -54,6 +62,24 @@
   --box-bg-color: var(--example-bg);
   --box-border-color: var(--example-border);
   --box-title-color: var(--example-title-color);
+}
+
+.lemma-box {
+  --box-bg-color: var(--lemma-bg);
+  --box-border-color: var(--lemma-border);
+  --box-title-color: var(--lemma-title-color);
+}
+
+.problem-box {
+  --box-bg-color: var(--problem-bg);
+  --box-border-color: var(--problem-border);
+  --box-title-color: var(--problem-title-color);
+}
+
+.exercise-box {
+  --box-bg-color: var(--exercise-bg);
+  --box-border-color: var(--exercise-border);
+  --box-title-color: var(--exercise-title-color);
 }
 
 .series-bookmark {

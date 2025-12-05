@@ -133,6 +133,22 @@
   --paper-info-border: #3498db; /* 원래와 동일한 선명한 블루 (어둡고 깊은 배경 위에서 돋보임) */
   --paper-info-accent: #3498db; /* 동일하게 유지 */
   --paper-info-title-color: #85c1e9; /* 라이트 모드의 #2980b9보다 더 밝게 하여 어두운 배경에서 가독성 향상 */
+  /* _dark.scss 파일의 '사용자 정의 박스' 섹션 아래에 복사/붙여넣기 */
+
+  /* Lemma: Theorem(Green)과 비슷하지만 구별되는 청록(Teal) 계열 */
+  --lemma-bg: #1a3b3b; 
+  --lemma-border: #20c997; /* Theorem과 톤을 맞추거나, #3bc9db (Cyan) 추천 */
+  --lemma-title-color: #66d9e8;
+
+  /* Problem: 주목도를 높이는 붉은(Red) 계열 (경고창보다는 부드럽게) */
+  --problem-bg: #3a2020;
+  --problem-border: #ff6b6b;
+  --problem-title-color: #ffc9c9;
+
+  /* Exercise: 깊이 있는 보라(Purple) 계열 */
+  --exercise-bg: #2b203a;
+  --exercise-border: #b197fc;
+  --exercise-title-color: #d0bfff;
 
   .light {
     display: none;
