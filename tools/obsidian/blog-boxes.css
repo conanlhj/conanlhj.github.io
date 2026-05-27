@@ -1,0 +1,207 @@
+/* =========================================================================
+   blog-boxes.css — Obsidian callouts ↔ Chirpy 블로그 박스 시각 매칭
+   =========================================================================
+   설치:
+     1) 이 파일을 <Vault>/.obsidian/snippets/blog-boxes.css 에 복사
+     2) Obsidian → Settings → Appearance → CSS snippets → 새로고침 후 켜기
+
+   사용:
+     > [!definition] 정의 1.1
+     > σ-algebra란 다음 세 조건을 만족하는 집합 𝓕이다.
+     > 1. ∅ ∈ 𝓕
+     > 2. A ∈ 𝓕 ⇒ Aᶜ ∈ 𝓕
+     > 3. Aᵢ ∈ 𝓕 ⇒ ⋃Aᵢ ∈ 𝓕
+
+   지원 콜아웃 타입:
+     definition / theorem / lemma / example / exercise / problem / paper
+   ========================================================================= */
+
+
+/* ---------- 공통: 박스 외형 -------------------------------------------- */
+.callout[data-callout="definition"],
+.callout[data-callout="theorem"],
+.callout[data-callout="lemma"],
+.callout[data-callout="example"],
+.callout[data-callout="exercise"],
+.callout[data-callout="problem"],
+.callout[data-callout="paper"] {
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  border: none;
+  border-left: 4px solid var(--blog-border);
+  background-color: var(--blog-bg);
+  color: var(--text-normal);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  mix-blend-mode: normal;
+}
+
+.callout[data-callout="definition"] .callout-title,
+.callout[data-callout="theorem"] .callout-title,
+.callout[data-callout="lemma"] .callout-title,
+.callout[data-callout="example"] .callout-title,
+.callout[data-callout="exercise"] .callout-title,
+.callout[data-callout="problem"] .callout-title,
+.callout[data-callout="paper"] .callout-title {
+  padding: 0 0 0.4rem 0;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--blog-title);
+  background: transparent;
+}
+
+.callout[data-callout="definition"] .callout-icon,
+.callout[data-callout="theorem"] .callout-icon,
+.callout[data-callout="lemma"] .callout-icon,
+.callout[data-callout="example"] .callout-icon,
+.callout[data-callout="exercise"] .callout-icon,
+.callout[data-callout="problem"] .callout-icon,
+.callout[data-callout="paper"] .callout-icon {
+  color: var(--blog-title);
+}
+
+.callout[data-callout="definition"] .callout-content > *:first-child,
+.callout[data-callout="theorem"] .callout-content > *:first-child,
+.callout[data-callout="lemma"] .callout-content > *:first-child,
+.callout[data-callout="example"] .callout-content > *:first-child,
+.callout[data-callout="exercise"] .callout-content > *:first-child,
+.callout[data-callout="problem"] .callout-content > *:first-child,
+.callout[data-callout="paper"] .callout-content > *:first-child {
+  margin-top: 0;
+}
+
+
+/* ---------- Light 모드 색상 (블로그 _light.scss와 동일) -------------- */
+.callout[data-callout="definition"] {
+  --blog-bg: #e1f1ff;
+  --blog-border: #339af0;
+  --blog-title: #1971c2;
+  --callout-icon: lucide-book-open;
+}
+
+.callout[data-callout="theorem"] {
+  --blog-bg: #dff9f0;
+  --blog-border: #20c997;
+  --blog-title: #099268;
+  --callout-icon: lucide-award;
+}
+
+.callout[data-callout="lemma"] {
+  --blog-bg: #e3fafc;
+  --blog-border: #1098ad;
+  --blog-title: #0b7285;
+  --callout-icon: lucide-bookmark;
+}
+
+.callout[data-callout="example"] {
+  --blog-bg: #fff3da;
+  --blog-border: #fcc419;
+  --blog-title: #d48b00;
+  --callout-icon: lucide-lightbulb;
+}
+
+.callout[data-callout="exercise"] {
+  --blog-bg: #f3f0ff;
+  --blog-border: #9775fa;
+  --blog-title: #5f3dc4;
+  --callout-icon: lucide-dumbbell;
+}
+
+.callout[data-callout="problem"] {
+  --blog-bg: #fff5f5;
+  --blog-border: #ff8787;
+  --blog-title: #c92a2a;
+  --callout-icon: lucide-help-circle;
+}
+
+.callout[data-callout="paper"] {
+  --blog-bg: #eaf6fc;
+  --blog-border: #3498db;
+  --blog-title: #2980b9;
+  --callout-icon: lucide-file-text;
+  /* 블로그 paper-info-box는 상단 액센트 라인이 있음 → 위쪽도 강조 */
+  border-top: 4px solid #3498db;
+  border-left: 1px solid #3498db;
+  border-right: 1px solid #3498db;
+  border-bottom: 1px solid #3498db;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ---------- Dark 모드 색상 (블로그 _dark.scss와 동일) ---------------- */
+.theme-dark .callout[data-callout="definition"] {
+  --blog-bg: #243747;
+  --blog-border: #4dabf7;
+  --blog-title: #a8d9ff;
+}
+
+.theme-dark .callout[data-callout="theorem"] {
+  --blog-bg: #203a31;
+  --blog-border: #38d9a9;
+  --blog-title: #8cf8d4;
+}
+
+.theme-dark .callout[data-callout="lemma"] {
+  --blog-bg: #1a3b3b;
+  --blog-border: #20c997;
+  --blog-title: #66d9e8;
+}
+
+.theme-dark .callout[data-callout="example"] {
+  --blog-bg: #3e3724;
+  --blog-border: #fab005;
+  --blog-title: #ffdfa6;
+}
+
+.theme-dark .callout[data-callout="exercise"] {
+  --blog-bg: #2b203a;
+  --blog-border: #b197fc;
+  --blog-title: #d0bfff;
+}
+
+.theme-dark .callout[data-callout="problem"] {
+  --blog-bg: #3a2020;
+  --blog-border: #ff6b6b;
+  --blog-title: #ffc9c9;
+}
+
+.theme-dark .callout[data-callout="paper"] {
+  --blog-bg: #1e2a38;
+  --blog-border: #3498db;
+  --blog-title: #85c1e9;
+}
+
+
+/* ---------- Exercise 박스의 (a), (b) 리스트 (블로그 동일) ------------ */
+/* Obsidian Live Preview에서는 ol > li 처리 한계가 있지만, 읽기 모드에서는 작동 */
+.callout[data-callout="exercise"] .callout-content > ol {
+  list-style: none;
+  padding-left: 1.6rem;
+  counter-reset: subcounter;
+}
+
+.callout[data-callout="exercise"] .callout-content > ol > li {
+  counter-increment: subcounter;
+  position: relative;
+  margin-bottom: 0.9rem;
+}
+
+.callout[data-callout="exercise"] .callout-content > ol > li::marker {
+  content: "";
+}
+
+.callout[data-callout="exercise"] .callout-content > ol > li::before {
+  content: "(" counter(subcounter, lower-alpha) ") ";
+  font-weight: 700;
+  color: var(--blog-title);
+  position: absolute;
+  left: -1.6rem;
+}
+
+.callout[data-callout="exercise"] .callout-content > ol > li > ol {
+  list-style-type: lower-roman;
+  margin-top: 0.4rem;
+  padding-left: 1.3rem;
+}
